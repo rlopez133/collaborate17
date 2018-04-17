@@ -1,0 +1,28 @@
+# Download the VirtualBox RPM
+# wget https://download.virtualbox.org/virtualbox/5.2.8/VirtualBox-5.2-5.2.8_121009_el7-1.x86_64.rpm
+
+# Install some development packages required for vboxconfig
+# yum install -y gcc perl make kernel-headers kernel-devel 
+
+# Install xorg packages and firefox for accessing the browser to install apps
+# yum install -y xorg-x11-utils xorg-x11-xauth
+
+# Install Minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/# 
+
+# Start Minikube
+# minikube start
+
+# Install Kubectl
+curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
+
+# Verify that Minikube is installed
+# kubectl get nodes
+NAME       STATUS    ROLES     AGE       VERSION
+minikube   Ready     master    1h        v1.10.0
+
+#Exit from the session and login with ssh using trusted X11 forwarding
+# ssh <hostname> -Y
+
+# Access the minikube dashboard (should open a browser using your X11 fowarding)
+# minikube dashboard
